@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Index Page {% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="jumbotron" style="text-align: center">
+        <h1>Flask-Lingo</h1>
+        <p>Learn a New Language</p>
+        <a href={{ url_for('quiz') }}>
+            <button type="button" class="btn btn-success">Try it out!</button>
+        </a>
+    </div>
+    <img class="img-responsive center-block" style="max-height: 50vh" src="/static/logo.png">
+</div>
+{% endblock %}

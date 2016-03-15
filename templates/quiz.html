@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Index Page {% endblock %}
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='quiz.css') }}">
+{% block content %}
+<div class="container">
+    <h1 style="text-align: center">Quiz Page</h1>
+
+    <form method="post">
+        {% for word in words %}
+        <div class="form-group">
+            <label for="translationinput">{{ word }}</label>
+            <input type="text" class="form-control" placeholder="translation" name="{{ word }}">
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+
+
+    <img class="img-responsive center-block" id="quiz-logo" style="max-height: 50vh" src="/static/logo.png">
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class=flashes>
+        {% for message in messages %}
+        <h2 style="text-align: center">Score: {{ message }}</h2>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+</div>
+{% endblock %}
